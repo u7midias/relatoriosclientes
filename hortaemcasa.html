@@ -3,66 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Relatório de Anúncios — Horta em Casa</title>
+  <title>Relatório de Performance de Anúncios — Horta em Casa</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --green-dark: #2d6a4f;
-      --green-mid: #40916c;
-      --green-light: #74c69d;
-      --green-pale: #d8f3dc;
-      --accent: #f77f00;
-      --accent-light: #ffd166;
-      --bg: #f6faf7;
+      --primary-dark: #1a4314;
+      --primary-mid: #386641;
+      --primary-light: #6a994e;
+      --primary-pale: #a7c957;
+      --accent: #bc4749;
+      --accent-light: #e63946;
+      --bg: #f8f9fa;
       --card-bg: #ffffff;
-      --text: #1b2d24;
-      --muted: #6b8f71;
-      --border: #b7e4c7;
-      --radius: 16px;
-      --shadow: 0 4px 24px rgba(45,106,79,0.10);
+      --text: #212529;
+      --muted: #6c757d;
+      --border: #dee2e6;
+      --radius: 8px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     /* ── HEADER ── */
     header {
-      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 100%);
       color: #fff;
       padding: 40px 32px 32px;
       text-align: center;
+      border-bottom: 5px solid var(--primary-pale);
     }
-    header .logo-icon { font-size: 3rem; margin-bottom: 8px; }
+    header .logo-text { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -1px; }
     header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
-    header p  { margin-top: 6px; font-size: 1rem; opacity: 0.88; }
+    header p  { margin-top: 6px; font-size: 1rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto; }
     header .period {
       display: inline-block;
-      margin-top: 14px;
-      background: rgba(255,255,255,0.18);
+      margin-top: 18px;
+      background: rgba(255,255,255,0.15);
       border-radius: 50px;
-      padding: 6px 20px;
+      padding: 8px 24px;
       font-size: 0.9rem;
       font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     /* ── MAIN ── */
-    main { max-width: 960px; margin: 0 auto; padding: 36px 20px 60px; }
+    main { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
 
     /* ── SECTION TITLE ── */
     .section-title {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: var(--green-dark);
-      margin: 40px 0 16px;
+      color: var(--primary-dark);
+      margin: 50px 0 20px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .section-title::after {
       content: '';
@@ -75,30 +78,29 @@
     /* ── SUMMARY CARDS ── */
     .summary-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
     }
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 22px 20px;
-      border-top: 4px solid var(--green-light);
-      transition: transform .18s;
+      padding: 25px;
+      border-top: 4px solid var(--primary-light);
+      transition: transform .18s, box-shadow .18s;
     }
-    .card:hover { transform: translateY(-3px); }
-    .card .icon { font-size: 1.7rem; margin-bottom: 8px; }
-    .card .label { font-size: 0.82rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
-    .card .value { font-size: 1.7rem; font-weight: 800; color: var(--green-dark); margin-top: 4px; line-height: 1.1; }
-    .card .sub   { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    .card .label { font-size: 0.85rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+    .card .value { font-size: 2rem; font-weight: 800; color: var(--primary-dark); line-height: 1.1; }
+    .card .sub   { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
     .card.accent { border-top-color: var(--accent); }
     .card.accent .value { color: var(--accent); }
 
     /* ── ADS TABLE ── */
     .ads-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
     }
     .ad-card {
       background: var(--card-bg);
@@ -107,87 +109,97 @@
       overflow: hidden;
     }
     .ad-card .ad-header {
-      background: linear-gradient(90deg, var(--green-mid), var(--green-light));
+      background: linear-gradient(90deg, var(--primary-mid), var(--primary-light));
       color: #fff;
-      padding: 16px 20px;
+      padding: 18px 24px;
     }
-    .ad-card .ad-header .ad-name { font-size: 1rem; font-weight: 700; }
+    .ad-card .ad-header .ad-name { font-size: 1.1rem; font-weight: 700; }
     .ad-card .ad-header .ad-status {
       display: inline-block;
-      margin-top: 6px;
-      background: rgba(255,255,255,0.25);
+      margin-top: 8px;
+      background: rgba(255,255,255,0.2);
       border-radius: 50px;
-      padding: 2px 12px;
-      font-size: 0.78rem;
+      padding: 4px 14px;
+      font-size: 0.8rem;
       font-weight: 600;
     }
-    .ad-card .ad-body { padding: 18px 20px; }
+    .ad-card .ad-body { padding: 20px 24px; }
     .ad-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--green-pale);
-      font-size: 0.9rem;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
     }
     .ad-row:last-child { border-bottom: none; }
     .ad-row .ad-key { color: var(--muted); font-weight: 500; }
-    .ad-row .ad-val { font-weight: 700; color: var(--green-dark); }
+    .ad-row .ad-val { font-weight: 700; color: var(--primary-dark); }
     .ad-row .ad-val.warn { color: var(--accent); }
 
     /* ── CHARTS ── */
     .chart-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
     .chart-card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 24px 20px;
+      padding: 28px;
     }
-    .chart-card h3 { font-size: 1rem; font-weight: 700; color: var(--green-dark); margin-bottom: 16px; }
-    .chart-card canvas { max-height: 240px; }
+    .chart-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 20px; }
+    .chart-card canvas { max-height: 280px; }
 
     /* ── INSIGHT BOX ── */
     .insight-box {
-      background: var(--green-pale);
-      border-left: 5px solid var(--green-mid);
+      background: #e9f5db;
+      border-left: 5px solid var(--primary-light);
       border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 18px 22px;
-      margin-top: 12px;
-      font-size: 0.95rem;
+      padding: 20px 25px;
+      margin-top: 15px;
+      font-size: 1rem;
       line-height: 1.6;
-      color: var(--green-dark);
+      color: var(--primary-dark);
     }
-    .insight-box strong { color: var(--green-dark); }
+    .insight-box strong { color: var(--primary-dark); }
 
     /* ── ALERT BOX ── */
     .alert-box {
-      background: #fff4e6;
+      background: #fdf3f3;
       border-left: 5px solid var(--accent);
       border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 18px 22px;
-      margin-top: 12px;
-      font-size: 0.95rem;
+      padding: 20px 25px;
+      margin-top: 15px;
+      font-size: 1rem;
       line-height: 1.6;
-      color: #7c4a00;
+      color: var(--accent);
     }
 
     /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 28px 20px;
-      font-size: 0.82rem;
+      padding: 30px 24px;
+      font-size: 0.85rem;
       color: var(--muted);
       border-top: 1px solid var(--border);
+      margin-top: 60px;
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 520px) {
-      header h1 { font-size: 1.4rem; }
-      .card .value { font-size: 1.35rem; }
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8rem; }
+      .section-title { font-size: 1.2rem; }
+      .card .value { font-size: 1.8rem; }
+      .ad-card .ad-header { padding: 15px 20px; }
+      .ad-card .ad-body { padding: 18px 20px; }
+    }
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.5rem; }
+      header p { font-size: 0.9rem; }
+      .card .value { font-size: 1.5rem; }
+      .summary-grid, .ads-grid, .chart-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -195,96 +207,90 @@
 
 <!-- ══════════════ HEADER ══════════════ -->
 <header>
-  <div class="logo-icon">🌱</div>
-  <h1>Relatório de Anúncios</h1>
-  <p>Horta em Casa — Como seu dinheiro está sendo investido</p>
-  <span class="period">📅 24 de fevereiro de 2026 → 11 de junho de 2026</span>
+  <div class="logo-text">Horta em Casa</div>
+  <h1>Relatório de Performance de Anúncios</h1>
+  <p>Análise detalhada do investimento em publicidade digital e seus resultados, com foco na otimização e crescimento.</p>
+  <span class="period">Período Analisado: 24 de fevereiro de 2026 → 11 de junho de 2026</span>
 </header>
 
 <main>
 
-  <!-- ══════════════ RESUMO GERAL ══════════════ -->
-  <div class="section-title">💰 Resumo Geral dos Gastos</div>
+  <!-- ══════════════ RESUMO EXECUTIVO ══════════════ -->
+  <div class="section-title">Resumo Executivo</div>
   <div class="summary-grid">
     <div class="card accent">
-      <div class="icon">💸</div>
-      <div class="label">Total Investido</div>
+      <div class="label">Investimento Total</div>
       <div class="value">R$ 2.675,19</div>
-      <div class="sub">nos dois anúncios juntos</div>
+      <div class="sub">Valor total aplicado nas campanhas.</div>
     </div>
     <div class="card">
-      <div class="icon">👥</div>
       <div class="label">Pessoas Alcançadas</div>
       <div class="value">52.947</div>
-      <div class="sub">pessoas únicas viram o anúncio</div>
+      <div class="sub">Usuários únicos que visualizaram os anúncios.</div>
     </div>
     <div class="card">
-      <div class="icon">👁️</div>
-      <div class="label">Total de Exibições</div>
+      <div class="label">Total de Impressões</div>
       <div class="value">329.067</div>
-      <div class="sub">vezes que o anúncio apareceu</div>
+      <div class="sub">Número total de vezes que os anúncios foram exibidos.</div>
     </div>
     <div class="card">
-      <div class="icon">💬</div>
       <div class="label">Conversas Iniciadas</div>
       <div class="value">331</div>
-      <div class="sub">pessoas que entraram em contato</div>
+      <div class="sub">Contatos diretos gerados pelos anúncios.</div>
     </div>
     <div class="card">
-      <div class="icon">🖱️</div>
-      <div class="label">Cliques no Anúncio</div>
+      <div class="label">Cliques no Link</div>
       <div class="value">1.561</div>
-      <div class="sub">cliques diretos no link</div>
+      <div class="sub">Cliques diretos nos links dos anúncios.</div>
     </div>
     <div class="card">
-      <div class="icon">📅</div>
-      <div class="label">Orçamento Diário</div>
+      <div class="label">Orçamento Diário Médio</div>
       <div class="value">R$ 25,00</div>
-      <div class="sub">por anúncio / por dia</div>
+      <div class="sub">Orçamento diário definido por anúncio.</div>
     </div>
   </div>
 
-  <!-- ══════════════ CADA ANÚNCIO ══════════════ -->
-  <div class="section-title">📢 Detalhes de Cada Anúncio</div>
+  <!-- ══════════════ DETALHES DAS CAMPANHAS ══════════════ -->
+  <div class="section-title">Detalhes das Campanhas</div>
   <div class="ads-grid">
 
     <!-- Anúncio 1 -->
     <div class="ad-card">
       <div class="ad-header">
-        <div class="ad-name">🌿 Anúncio: HORTA</div>
-        <span class="ad-status">✅ Ativo</span>
+        <div class="ad-name">Campanha: HORTA</div>
+        <span class="ad-status">Status: Ativo</span>
       </div>
       <div class="ad-body">
         <div class="ad-row">
-          <span class="ad-key">💰 Dinheiro gasto</span>
+          <span class="ad-key">Investimento</span>
           <span class="ad-val">R$ 2.293,74</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">👥 Pessoas alcançadas</span>
+          <span class="ad-key">Pessoas Alcançadas</span>
           <span class="ad-val">42.862</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">👁️ Vezes exibido</span>
+          <span class="ad-key">Impressões</span>
           <span class="ad-val">287.205</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">💬 Conversas iniciadas</span>
+          <span class="ad-key">Conversas Iniciadas</span>
           <span class="ad-val">297</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">🖱️ Cliques no link</span>
+          <span class="ad-key">Cliques no Link</span>
           <span class="ad-val">1.373</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">💵 Custo por conversa</span>
+          <span class="ad-key">Custo por Conversa</span>
           <span class="ad-val">R$ 7,72</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">📊 Custo por clique</span>
+          <span class="ad-key">Custo por Clique</span>
           <span class="ad-val">R$ 1,67</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">🔁 Frequência (vezes visto)</span>
+          <span class="ad-key">Frequência (vezes visto)</span>
           <span class="ad-val">6,7×</span>
         </div>
       </div>
@@ -293,40 +299,40 @@
     <!-- Anúncio 2 -->
     <div class="ad-card">
       <div class="ad-header">
-        <div class="ad-name">🥦 Anúncio: PRODUTOS CORTADOS</div>
-        <span class="ad-status">✅ Ativo</span>
+        <div class="ad-name">Campanha: PRODUTOS CORTADOS</div>
+        <span class="ad-status">Status: Ativo</span>
       </div>
       <div class="ad-body">
         <div class="ad-row">
-          <span class="ad-key">💰 Dinheiro gasto</span>
+          <span class="ad-key">Investimento</span>
           <span class="ad-val">R$ 381,45</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">👥 Pessoas alcançadas</span>
+          <span class="ad-key">Pessoas Alcançadas</span>
           <span class="ad-val">10.085</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">👁️ Vezes exibido</span>
+          <span class="ad-key">Impressões</span>
           <span class="ad-val">41.862</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">💬 Conversas iniciadas</span>
+          <span class="ad-key">Conversas Iniciadas</span>
           <span class="ad-val">34</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">🖱️ Cliques no link</span>
+          <span class="ad-key">Cliques no Link</span>
           <span class="ad-val">188</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">💵 Custo por conversa</span>
+          <span class="ad-key">Custo por Conversa</span>
           <span class="ad-val warn">R$ 11,22</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">📊 Custo por clique</span>
+          <span class="ad-key">Custo por Clique</span>
           <span class="ad-val">R$ 2,03</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">🔁 Frequência (vezes visto)</span>
+          <span class="ad-key">Frequência (vezes visto)</span>
           <span class="ad-val">4,2×</span>
         </div>
       </div>
@@ -334,72 +340,72 @@
 
   </div>
 
-  <!-- ══════════════ GRÁFICOS ══════════════ -->
-  <div class="section-title">📊 Visualizações Comparativas</div>
+  <!-- ══════════════ ANÁLISE E INSIGHTS ══════════════ -->
+  <div class="section-title">Análise e Insights</div>
+
+  <div class="insight-box">
+    A campanha de <strong style="color: var(--primary-dark);">HORTA</strong>, iniciada antes da gestão da u7midias, demonstrou um desempenho robusto, gerando <strong style="color: var(--primary-dark);">297 conversas</strong> com um custo por contato de <strong style="color: var(--primary-dark);">R$ 7,72</strong>. Este valor é considerado eficiente para o engajamento em plataformas de mídia social.
+  </div>
+
+  <div class="alert-box">
+    A campanha de <strong style="color: var(--accent);">PRODUTOS CORTADOS</strong>, implementada sob a gestão da u7midias, apresenta um custo por conversa de <strong style="color: var(--accent);">R$ 11,22</strong>. Embora seja um valor superior, é importante considerar que esta campanha é mais recente e pode estar em fase de otimização. Ajustes no criativo e segmentação podem aprimorar sua performance.
+  </div>
+
+  <div class="insight-box" style="margin-top:15px;">
+    <strong style="color: var(--primary-dark);">Resumo Geral:</strong> O investimento total de <strong style="color: var(--primary-dark);">R$ 2.675,19</strong> resultou em <strong style="color: var(--primary-dark);">331 conversas iniciadas</strong>, com um custo médio de <strong style="color: var(--primary-dark);">R$ 8,08 por contato</strong>. Este é um resultado positivo para o setor, indicando um bom retorno sobre o investimento em publicidade digital.
+  </div>
+
+  <!-- ══════════════ VISUALIZAÇÕES COMPARATIVAS ══════════════ -->
+  <div class="section-title">Visualizações Comparativas</div>
   <div class="chart-grid">
 
     <div class="chart-card">
-      <h3>💸 Quanto foi gasto em cada anúncio</h3>
+      <h3>Investimento por Campanha</h3>
       <canvas id="chartGasto"></canvas>
     </div>
 
     <div class="chart-card">
-      <h3>💬 Conversas geradas por anúncio</h3>
+      <h3>Conversas Geradas</h3>
       <canvas id="chartConversas"></canvas>
     </div>
 
     <div class="chart-card">
-      <h3>👥 Pessoas alcançadas por anúncio</h3>
+      <h3>Pessoas Alcançadas</h3>
       <canvas id="chartAlcance"></canvas>
     </div>
 
     <div class="chart-card">
-      <h3>💵 Custo por conversa (quanto custa cada contato)</h3>
+      <h3>Custo por Conversa</h3>
       <canvas id="chartCusto"></canvas>
     </div>
 
   </div>
 
-  <!-- ══════════════ INSIGHTS ══════════════ -->
-  <div class="section-title">💡 O que isso significa para você?</div>
-
-  <div class="insight-box">
-    <strong>🌿 Anúncio da HORTA</strong> é o que mais traz resultado: ele gerou <strong>297 conversas</strong> com um custo de <strong>R$ 7,72 por contato</strong>. Ou seja, cada pessoa que entrou em contato custou menos de R$ 8 — um valor bastante razoável para anúncios no Instagram/Facebook.
-  </div>
-
-  <div class="alert-box">
-    <strong>⚠️ Anúncio de PRODUTOS CORTADOS</strong> está custando <strong>R$ 11,22 por conversa</strong> — um pouco mais caro que o outro. Isso pode indicar que o público ainda está "aprendendo" a reagir a esse anúncio, ou que o criativo (imagem/texto) pode ser ajustado para melhorar os resultados.
-  </div>
-
-  <div class="insight-box" style="margin-top:12px;">
-    <strong>📌 Resumo simples:</strong> No total, você investiu <strong>R$ 2.675,19</strong> e conseguiu que <strong>331 pessoas entrassem em contato</strong> com o seu negócio. Isso dá uma média de <strong>R$ 8,08 por contato</strong> — o que é um resultado positivo para o segmento de horta e alimentos frescos.
-  </div>
-
-  <!-- ══════════════ DISTRIBUIÇÃO DO GASTO ══════════════ -->
-  <div class="section-title">🥧 Como o dinheiro foi dividido</div>
+  <!-- ══════════════ DISTRIBUIÇÃO DO INVESTIMENTO ══════════════ -->
+  <div class="section-title">Distribuição do Investimento</div>
   <div class="chart-grid" style="grid-template-columns: 1fr;">
-    <div class="chart-card" style="max-width: 420px; margin: 0 auto; width: 100%;">
-      <h3>Distribuição do investimento total</h3>
+    <div class="chart-card" style="max-width: 480px; margin: 0 auto; width: 100%;">
+      <h3>Proporção do Investimento Total</h3>
       <canvas id="chartPie"></canvas>
     </div>
   </div>
 
   <div class="insight-box" style="margin-top:20px;">
-    <strong>85,8%</strong> do investimento foi no anúncio da Horta (R$ 2.293,74) e <strong>14,2%</strong> no anúncio de Produtos Cortados (R$ 381,45). Faz sentido concentrar mais verba no anúncio que já está dando mais resultado!
+    A alocação de <strong style="color: var(--primary-dark);">85,8%</strong> do investimento na campanha Horta (R$ 2.293,74) e <strong style="color: var(--primary-dark);">14,2%</strong> na campanha Produtos Cortados (R$ 381,45) reflete uma estratégia de priorização baseada no desempenho histórico. A u7midias pode ajustar essa distribuição conforme a otimização da campanha mais recente.
   </div>
 
 </main>
 
 <footer>
-  Relatório gerado com base nos dados exportados do Gerenciador de Anúncios &bull; Período: 24/02/2026 a 11/06/2026 &bull; Horta em Casa
+  Relatório de Performance de Anúncios &bull; Horta em Casa &bull; Gerado em 11 de junho de 2026
 </footer>
 
 <!-- ══════════════ SCRIPTS DOS GRÁFICOS ══════════════ -->
 <script>
-  const GREEN  = '#40916c';
-  const GREEN2 = '#74c69d';
-  const ORANGE = '#f77f00';
-  const ORANGE2= '#ffd166';
+  const PRIMARY_DARK  = '#386641';
+  const PRIMARY_LIGHT = '#6a994e';
+  const ACCENT        = '#bc4749';
+  const ACCENT_LIGHT  = '#e63946';
 
   const defaultOpts = {
     responsive: true,
@@ -414,11 +420,11 @@
   new Chart(document.getElementById('chartGasto'), {
     type: 'bar',
     data: {
-      labels: ['🌿 Horta', '🥦 Produtos Cortados'],
+      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
       datasets: [{
         data: [2293.74, 381.45],
-        backgroundColor: [GREEN, ORANGE],
-        borderRadius: 10,
+        backgroundColor: [PRIMARY_DARK, ACCENT],
+        borderRadius: 8,
         borderSkipped: false
       }]
     },
@@ -447,11 +453,11 @@
   new Chart(document.getElementById('chartConversas'), {
     type: 'bar',
     data: {
-      labels: ['🌿 Horta', '🥦 Produtos Cortados'],
+      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
       datasets: [{
         data: [297, 34],
-        backgroundColor: [GREEN, ORANGE],
-        borderRadius: 10,
+        backgroundColor: [PRIMARY_DARK, ACCENT],
+        borderRadius: 8,
         borderSkipped: false
       }]
     },
@@ -468,11 +474,11 @@
   new Chart(document.getElementById('chartAlcance'), {
     type: 'bar',
     data: {
-      labels: ['🌿 Horta', '🥦 Produtos Cortados'],
+      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
       datasets: [{
         data: [42862, 10085],
-        backgroundColor: [GREEN2, ORANGE2],
-        borderRadius: 10,
+        backgroundColor: [PRIMARY_LIGHT, ACCENT_LIGHT],
+        borderRadius: 8,
         borderSkipped: false
       }]
     },
@@ -489,11 +495,11 @@
   new Chart(document.getElementById('chartCusto'), {
     type: 'bar',
     data: {
-      labels: ['🌿 Horta', '🥦 Produtos Cortados'],
+      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
       datasets: [{
         data: [7.72, 11.22],
-        backgroundColor: [GREEN, ORANGE],
-        borderRadius: 10,
+        backgroundColor: [PRIMARY_DARK, ACCENT],
+        borderRadius: 8,
         borderSkipped: false
       }]
     },
@@ -522,10 +528,10 @@
   new Chart(document.getElementById('chartPie'), {
     type: 'doughnut',
     data: {
-      labels: ['🌿 Horta (85,8%)', '🥦 Produtos Cortados (14,2%)'],
+      labels: ['Campanha Horta (85,8%)', 'Campanha Produtos Cortados (14,2%)'],
       datasets: [{
         data: [2293.74, 381.45],
-        backgroundColor: [GREEN, ORANGE],
+        backgroundColor: [PRIMARY_DARK, ACCENT],
         borderWidth: 3,
         borderColor: '#fff',
         hoverOffset: 12
