@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Relatório de Performance de Anúncios — Horta em Casa</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <title>Relatório de Anúncios — Horta em Casa</title>
   <style>
     :root {
       --primary-dark: #1a4314;
@@ -137,21 +136,6 @@
     .ad-row .ad-val { font-weight: 700; color: var(--primary-dark); }
     .ad-row .ad-val.warn { color: var(--accent); }
 
-    /* ── CHARTS ── */
-    .chart-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .chart-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-    .chart-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 20px; }
-    .chart-card canvas { max-height: 280px; }
-
     /* ── INSIGHT BOX ── */
     .insight-box {
       background: #e9f5db;
@@ -199,7 +183,7 @@
       header h1 { font-size: 1.5rem; }
       header p { font-size: 0.9rem; }
       .card .value { font-size: 1.5rem; }
-      .summary-grid, .ads-grid, .chart-grid { grid-template-columns: 1fr; }
+      .summary-grid, .ads-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -208,90 +192,82 @@
 <!-- ══════════════ HEADER ══════════════ -->
 <header>
   <div class="logo-text">Horta em Casa</div>
-  <h1>Relatório de Performance de Anúncios</h1>
-  <p>Análise detalhada do investimento em publicidade digital e seus resultados, com foco na otimização e crescimento.</p>
+  <h1>Relatório de Anúncios</h1>
+  <p>Veja como seu dinheiro foi usado nos anúncios e o que cada um trouxe de resultado.</p>
   <span class="period">Período Analisado: 24 de fevereiro de 2026 → 11 de junho de 2026</span>
 </header>
 
 <main>
 
   <!-- ══════════════ RESUMO EXECUTIVO ══════════════ -->
-  <div class="section-title">Resumo Executivo</div>
+  <div class="section-title">O que você investiu e o que ganhou</div>
   <div class="summary-grid">
     <div class="card accent">
-      <div class="label">Investimento Total</div>
-      <div class="value">R$ 2.675,19</div>
-      <div class="sub">Valor total aplicado nas campanhas.</div>
+      <div class="label">Total Gasto</div>
+      <div class="value">R$ 2.747,58</div>
+      <div class="sub">Valor total investido nos três anúncios.</div>
     </div>
     <div class="card">
-      <div class="label">Pessoas Alcançadas</div>
-      <div class="value">52.947</div>
-      <div class="sub">Usuários únicos que visualizaram os anúncios.</div>
+      <div class="label">Pessoas que Viram</div>
+      <div class="value">54.075</div>
+      <div class="sub">Quantas pessoas diferentes viram seus anúncios.</div>
     </div>
     <div class="card">
-      <div class="label">Total de Impressões</div>
-      <div class="value">329.067</div>
-      <div class="sub">Número total de vezes que os anúncios foram exibidos.</div>
+      <div class="label">Total de Vezes Exibido</div>
+      <div class="value">338.599</div>
+      <div class="sub">O número total de vezes que seus anúncios apareceram.</div>
     </div>
     <div class="card">
-      <div class="label">Conversas Iniciadas</div>
-      <div class="value">331</div>
-      <div class="sub">Contatos diretos gerados pelos anúncios.</div>
+      <div class="label">Pessoas que Conversaram</div>
+      <div class="value">339</div>
+      <div class="sub">Quantas pessoas entraram em contato com você por causa dos anúncios.</div>
     </div>
     <div class="card">
-      <div class="label">Cliques no Link</div>
-      <div class="value">1.561</div>
-      <div class="sub">Cliques diretos nos links dos anúncios.</div>
+      <div class="label">Cliques nos Anúncios</div>
+      <div class="value">1.612</div>
+      <div class="sub">Quantas vezes as pessoas clicaram nos links dos seus anúncios.</div>
     </div>
     <div class="card">
-      <div class="label">Orçamento Diário Médio</div>
-      <div class="value">R$ 25,00</div>
-      <div class="sub">Orçamento diário definido por anúncio.</div>
+      <div class="label">Gasto Diário Médio</div>
+      <div class="value">R$ 22,90</div>
+      <div class="sub">O valor médio gasto por dia em todos os anúncios.</div>
     </div>
   </div>
 
   <!-- ══════════════ DETALHES DAS CAMPANHAS ══════════════ -->
-  <div class="section-title">Detalhes das Campanhas</div>
+  <div class="section-title">Como cada anúncio se saiu</div>
   <div class="ads-grid">
 
     <!-- Anúncio 1 -->
     <div class="ad-card">
       <div class="ad-header">
-        <div class="ad-name">Campanha: HORTA</div>
+        <div class="ad-name">Anúncio: HORTA</div>
         <span class="ad-status">Status: Ativo</span>
       </div>
       <div class="ad-body">
         <div class="ad-row">
-          <span class="ad-key">Investimento</span>
+          <span class="ad-key">Dinheiro Gasto</span>
           <span class="ad-val">R$ 2.293,74</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Pessoas Alcançadas</span>
+          <span class="ad-key">Pessoas que Viram</span>
           <span class="ad-val">42.862</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Impressões</span>
+          <span class="ad-key">Vezes Exibido</span>
           <span class="ad-val">287.205</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Conversas Iniciadas</span>
+          <span class="ad-key">Pessoas que Conversaram</span>
           <span class="ad-val">297</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Cliques no Link</span>
+          <span class="ad-key">Cliques no Anúncio</span>
           <span class="ad-val">1.373</span>
         </div>
         <div class="ad-row">
           <span class="ad-key">Custo por Conversa</span>
           <span class="ad-val">R$ 7,72</span>
-        </div>
-        <div class="ad-row">
-          <span class="ad-key">Custo por Clique</span>
-          <span class="ad-val">R$ 1,67</span>
-        </div>
-        <div class="ad-row">
-          <span class="ad-key">Frequência (vezes visto)</span>
-          <span class="ad-val">6,7×</span>
         </div>
       </div>
     </div>
@@ -299,41 +275,67 @@
     <!-- Anúncio 2 -->
     <div class="ad-card">
       <div class="ad-header">
-        <div class="ad-name">Campanha: PRODUTOS CORTADOS</div>
+        <div class="ad-name">Anúncio: PRODUTOS CORTADOS</div>
         <span class="ad-status">Status: Ativo</span>
       </div>
       <div class="ad-body">
         <div class="ad-row">
-          <span class="ad-key">Investimento</span>
+          <span class="ad-key">Dinheiro Gasto</span>
           <span class="ad-val">R$ 381,45</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Pessoas Alcançadas</span>
+          <span class="ad-key">Pessoas que Viram</span>
           <span class="ad-val">10.085</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Impressões</span>
+          <span class="ad-key">Vezes Exibido</span>
           <span class="ad-val">41.862</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Conversas Iniciadas</span>
+          <span class="ad-key">Pessoas que Conversaram</span>
           <span class="ad-val">34</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Cliques no Link</span>
+          <span class="ad-key">Cliques no Anúncio</span>
           <span class="ad-val">188</span>
         </div>
         <div class="ad-row">
           <span class="ad-key">Custo por Conversa</span>
           <span class="ad-val warn">R$ 11,22</span>
         </div>
+      </div>
+    </div>
+
+    <!-- Anúncio 3 -->
+    <div class="ad-card">
+      <div class="ad-header">
+        <div class="ad-name">Anúncio: ATENDEMOS NO BAIRRO STA ISABEL</div>
+        <span class="ad-status">Status: Ativo</span>
+      </div>
+      <div class="ad-body">
         <div class="ad-row">
-          <span class="ad-key">Custo por Clique</span>
-          <span class="ad-val">R$ 2,03</span>
+          <span class="ad-key">Dinheiro Gasto</span>
+          <span class="ad-val">R$ 72,39</span>
         </div>
         <div class="ad-row">
-          <span class="ad-key">Frequência (vezes visto)</span>
-          <span class="ad-val">4,2×</span>
+          <span class="ad-key">Pessoas que Viram</span>
+          <span class="ad-val">1.043</span>
+        </div>
+        <div class="ad-row">
+          <span class="ad-key">Vezes Exibido</span>
+          <span class="ad-val">4.766</span>
+        </div>
+        <div class="ad-row">
+          <span class="ad-key">Pessoas que Conversaram</span>
+          <span class="ad-val">8</span>
+        </div>
+        <div class="ad-row">
+          <span class="ad-key">Cliques no Anúncio</span>
+          <span class="ad-val">39</span>
+        </div>
+        <div class="ad-row">
+          <span class="ad-key">Custo por Conversa</span>
+          <span class="ad-val warn">R$ 9,05</span>
         </div>
       </div>
     </div>
@@ -341,219 +343,29 @@
   </div>
 
   <!-- ══════════════ ANÁLISE E INSIGHTS ══════════════ -->
-  <div class="section-title">Análise e Insights</div>
+  <div class="section-title">O que esses números significam</div>
 
   <div class="insight-box">
-    A campanha de <strong style="color: var(--primary-dark);">HORTA</strong>, iniciada antes da gestão da u7midias, demonstrou um desempenho robusto, gerando <strong style="color: var(--primary-dark);">297 conversas</strong> com um custo por contato de <strong style="color: var(--primary-dark);">R$ 7,72</strong>. Este valor é considerado eficiente para o engajamento em plataformas de mídia social.
+    A campanha da <strong style="color: var(--primary-dark);">HORTA</strong>, que começou antes da <strong>u7midias</strong> assumir, teve um ótimo desempenho. Ela trouxe <strong style="color: var(--primary-dark);">297 pessoas interessadas</strong>, e cada conversa custou apenas <strong style="color: var(--primary-dark);">R$ 7,72</strong>. Isso é um valor muito bom para anúncios em redes sociais!
   </div>
 
   <div class="alert-box">
-    A campanha de <strong style="color: var(--accent);">PRODUTOS CORTADOS</strong>, implementada sob a gestão da u7midias, apresenta um custo por conversa de <strong style="color: var(--accent);">R$ 11,22</strong>. Embora seja um valor superior, é importante considerar que esta campanha é mais recente e pode estar em fase de otimização. Ajustes no criativo e segmentação podem aprimorar sua performance.
+    Já a campanha de <strong style="color: var(--accent);">PRODUTOS CORTADOS</strong>, que a <strong>u7midias</strong> criou e está gerenciando, tem um custo por conversa de <strong style="color: var(--accent);">R$ 11,22</strong>. É um pouco mais caro que o outro anúncio, mas é normal no começo. Estamos trabalhando para melhorar isso, mudando as imagens e o texto para atrair mais pessoas pelo mesmo preço.
   </div>
 
   <div class="insight-box" style="margin-top:15px;">
-    <strong style="color: var(--primary-dark);">Resumo Geral:</strong> O investimento total de <strong style="color: var(--primary-dark);">R$ 2.675,19</strong> resultou em <strong style="color: var(--primary-dark);">331 conversas iniciadas</strong>, com um custo médio de <strong style="color: var(--primary-dark);">R$ 8,08 por contato</strong>. Este é um resultado positivo para o setor, indicando um bom retorno sobre o investimento em publicidade digital.
+    O anúncio <strong style="color: var(--primary-dark);">ATENDEMOS NO BAIRRO STA ISABEL</strong>, também gerenciado pela <strong>u7midias</strong>, é bem recente (apenas 3 dias) e já trouxe <strong style="color: var(--primary-dark);">8 conversas</strong> com um custo de <strong style="color: var(--primary-dark);">R$ 9,05 por conversa</strong>. Este é um resultado promissor para um anúncio tão novo!
   </div>
 
-  <!-- ══════════════ VISUALIZAÇÕES COMPARATIVAS ══════════════ -->
-  <div class="section-title">Visualizações Comparativas</div>
-  <div class="chart-grid">
-
-    <div class="chart-card">
-      <h3>Investimento por Campanha</h3>
-      <canvas id="chartGasto"></canvas>
-    </div>
-
-    <div class="chart-card">
-      <h3>Conversas Geradas</h3>
-      <canvas id="chartConversas"></canvas>
-    </div>
-
-    <div class="chart-card">
-      <h3>Pessoas Alcançadas</h3>
-      <canvas id="chartAlcance"></canvas>
-    </div>
-
-    <div class="chart-card">
-      <h3>Custo por Conversa</h3>
-      <canvas id="chartCusto"></canvas>
-    </div>
-
-  </div>
-
-  <!-- ══════════════ DISTRIBUIÇÃO DO INVESTIMENTO ══════════════ -->
-  <div class="section-title">Distribuição do Investimento</div>
-  <div class="chart-grid" style="grid-template-columns: 1fr;">
-    <div class="chart-card" style="max-width: 480px; margin: 0 auto; width: 100%;">
-      <h3>Proporção do Investimento Total</h3>
-      <canvas id="chartPie"></canvas>
-    </div>
-  </div>
-
-  <div class="insight-box" style="margin-top:20px;">
-    A alocação de <strong style="color: var(--primary-dark);">85,8%</strong> do investimento na campanha Horta (R$ 2.293,74) e <strong style="color: var(--primary-dark);">14,2%</strong> na campanha Produtos Cortados (R$ 381,45) reflete uma estratégia de priorização baseada no desempenho histórico. A u7midias pode ajustar essa distribuição conforme a otimização da campanha mais recente.
+  <div class="insight-box" style="margin-top:15px;">
+    <strong style="color: var(--primary-dark);">Em resumo:</strong> Você investiu um total de <strong style="color: var(--primary-dark);">R$ 2.747,58</strong> e, com isso, <strong style="color: var(--primary-dark);">339 pessoas entraram em contato</strong> com seu negócio. Cada contato custou, em média, <strong style="color: var(--primary-dark);">R$ 8,10</strong>. Esse é um resultado muito bom para o seu tipo de negócio!
   </div>
 
 </main>
 
 <footer>
-  Relatório de Performance de Anúncios &bull; Horta em Casa &bull; Gerado em 11 de junho de 2026
+  Relatório de Anúncios • Horta em Casa • Gerado em 11 de junho de 2026
 </footer>
-
-<!-- ══════════════ SCRIPTS DOS GRÁFICOS ══════════════ -->
-<script>
-  const PRIMARY_DARK  = '#386641';
-  const PRIMARY_LIGHT = '#6a994e';
-  const ACCENT        = '#bc4749';
-  const ACCENT_LIGHT  = '#e63946';
-
-  const defaultOpts = {
-    responsive: true,
-    plugins: { legend: { display: false } },
-    scales: {
-      y: { beginAtZero: true, grid: { color: '#e8f5e9' } },
-      x: { grid: { display: false } }
-    }
-  };
-
-  // Gasto
-  new Chart(document.getElementById('chartGasto'), {
-    type: 'bar',
-    data: {
-      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
-      datasets: [{
-        data: [2293.74, 381.45],
-        backgroundColor: [PRIMARY_DARK, ACCENT],
-        borderRadius: 8,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      ...defaultOpts,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => ' R$ ' + ctx.parsed.y.toLocaleString('pt-BR', {minimumFractionDigits:2})
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          grid: { color: '#e8f5e9' },
-          ticks: { callback: v => 'R$ ' + v.toLocaleString('pt-BR') }
-        },
-        x: { grid: { display: false } }
-      }
-    }
-  });
-
-  // Conversas
-  new Chart(document.getElementById('chartConversas'), {
-    type: 'bar',
-    data: {
-      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
-      datasets: [{
-        data: [297, 34],
-        backgroundColor: [PRIMARY_DARK, ACCENT],
-        borderRadius: 8,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      ...defaultOpts,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: ctx => ' ' + ctx.parsed.y + ' conversas' } }
-      }
-    }
-  });
-
-  // Alcance
-  new Chart(document.getElementById('chartAlcance'), {
-    type: 'bar',
-    data: {
-      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
-      datasets: [{
-        data: [42862, 10085],
-        backgroundColor: [PRIMARY_LIGHT, ACCENT_LIGHT],
-        borderRadius: 8,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      ...defaultOpts,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: ctx => ' ' + ctx.parsed.y.toLocaleString('pt-BR') + ' pessoas' } }
-      }
-    }
-  });
-
-  // Custo por conversa
-  new Chart(document.getElementById('chartCusto'), {
-    type: 'bar',
-    data: {
-      labels: ['Campanha Horta', 'Campanha Produtos Cortados'],
-      datasets: [{
-        data: [7.72, 11.22],
-        backgroundColor: [PRIMARY_DARK, ACCENT],
-        borderRadius: 8,
-        borderSkipped: false
-      }]
-    },
-    options: {
-      ...defaultOpts,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => ' R$ ' + ctx.parsed.y.toFixed(2).replace('.', ',') + ' por contato'
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          grid: { color: '#e8f5e9' },
-          ticks: { callback: v => 'R$ ' + v.toFixed(2).replace('.', ',') }
-        },
-        x: { grid: { display: false } }
-      }
-    }
-  });
-
-  // Pizza
-  new Chart(document.getElementById('chartPie'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Campanha Horta (85,8%)', 'Campanha Produtos Cortados (14,2%)'],
-      datasets: [{
-        data: [2293.74, 381.45],
-        backgroundColor: [PRIMARY_DARK, ACCENT],
-        borderWidth: 3,
-        borderColor: '#fff',
-        hoverOffset: 12
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: true,
-          position: 'bottom',
-          labels: { padding: 16, font: { size: 13 } }
-        },
-        tooltip: {
-          callbacks: {
-            label: ctx => ' R$ ' + ctx.parsed.toLocaleString('pt-BR', {minimumFractionDigits:2})
-          }
-        }
-      }
-    }
-  });
-</script>
 
 </body>
 </html>
